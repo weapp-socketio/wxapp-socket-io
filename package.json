@@ -1,0 +1,31 @@
+{
+  "name": "wxapp-socket-io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "wxsocket.io.js",
+  "scripts": {
+    "eslint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fanweixiao/wxapp-socket-io.git"
+  },
+  "author": "fanweixiao@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fanweixiao/wxapp-socket-io/issues"
+  },
+  "homepage": "https://github.com/fanweixiao/wxapp-socket-io#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-eslint": "^7.0.0",
+    "eslint": "^3.5.0",
+    "eslint-config-standard": "^6.0.1",
+    "eslint-plugin-import": "^1.15.0",
+    "eslint-plugin-promise": "^2.0.1",
+    "eslint-plugin-standard": "^2.0.0"
+  },
+  "engines": {
+    "node": ">=6"
+  }
+}
