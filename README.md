@@ -4,7 +4,7 @@
 
 # DEMO
 
-[DEMO](https://github.com/fanweixiao/wxapp-socket-io/tree/master/demo)演示了[Socket.io官方的Chat Demo](http://socket.io/demos/chat/)，下载运行DEMO时方便测试。
+[项目附了一个微信小程序的Demo项目](https://github.com/fanweixiao/wxapp-socket-io/tree/master/demo)演示了[接入Socket.io官方的演示聊天室](http://socket.io/demos/chat/)，在运行项目Demo时方便测试。
 
 关于在微信小程序中如何使用Socket.io可以[参考腾讯云前端团队的文档](https://github.com/CFETeam/weapp-demo-websocket/blob/master/README.md)
 
