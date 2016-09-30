@@ -4,12 +4,13 @@ App({
   onLaunch: function() {
   },
   onShow: function() {
-    const that = this
     const socket = this.globalData.socket = new WxSocketIO()
-    socket.connect('ws://chat.socket.io')
+    socket.connect('ws://chat.socket.io', {
+      path: 'socket.io',
+      with: 'mia&una',
+    })
     .then(_ => {
       console.info('App::WxSocketIO::onOpen')
-      console.info('App:onShow:', that.globalData)
     })
     .catch(err => {
       console.error('App::WxSocketIO::onError', err)
