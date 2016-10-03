@@ -33,6 +33,11 @@ socket.connect('ws://chat.socket.io', opts)
 ```
 将会设置`Socket.io`的url为`ws://chat.socket.io/fanweixiao/?EIO=3&transport=websocket&with=mia%26una`
 
+# Collaborator
+
++ [gongzili](https://github.com/gongzili456)
++ [C.C.](https://github.com/fanweixiao)
+
 # TODO
 
 + 重连机制
