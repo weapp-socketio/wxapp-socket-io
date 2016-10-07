@@ -40,6 +40,8 @@ socket.connect('ws://chat.socket.io', opts)
 
 # TODO
 
++ Connect 单例
++ emit buffer
 + 重连机制
 + Room的支持
 + Namespace的支持
