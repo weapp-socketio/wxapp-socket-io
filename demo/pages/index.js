@@ -33,7 +33,7 @@ Page({
     ws.on('new message', obj => {
       this.addItem(`>>> ${obj.username}: ${obj.message}`)
     })
-    ws.on('user left', _ => {
+    ws.on('user left', obj => {
       this.addItem(`[${obj.username}] Left, Online: ${obj.numUsers}`)
     })
   }
