@@ -1,9 +1,0 @@
-{
-  "debug": true,
-  "pages":[
-    "pages/index"
-  ],
-  "window": {
-    "navigationBarTitleText": "C.C."
-  }
-}

@@ -1,7 +1,11 @@
 # Support ES2016 features
-# extends: airbnb
-#
-# parser: babel-eslint
+extends: airbnb
+
+parser: babel-eslint
+
+# plugins: [
+#   "babel"
+# ]
 
 parserOptions:
   sourceType: module
@@ -9,6 +13,14 @@ parserOptions:
 rules:
   strict: 0
   arrow-parens: 0
+  # babel/arrow-parens: 1
+  # babel/generator-star-spacing: 1
+  # babel/new-cap: 1
+  # babel/array-bracket-spacing: 1
+  # babel/object-curly-spacing: [1, "always"]
+  # babel/object-shorthand: 1
+  # babel/no-await-in-loop: 1
+  # babel/flow-object-type: 1
   no-console: 0
   spaced-comment: [2, "always", { exceptions: ["-"]}]
   eqeqeq: 0
@@ -19,6 +31,7 @@ rules:
   yoda: 0
   arrow-spacing: 2
   dot-location: [2, "property"]
+  prefer-arrow-callback: 2
   keyword-spacing: [2, { after: true, before: true }]
   indent: [2, 2]
   camelcase: 0
@@ -26,10 +39,13 @@ rules:
   space-in-parens: [1, "never"]
   arrow-body-style: [1, "as-needed"]
   no-param-reassign: 0
-  new-cap: [2, {"capIsNewExceptions": ["Immutable.Map", "Immutable.Set", "Immutable.List", "App", "Page"]}]
+  no-unused-vars: [1, {"vars": "local", "args": "none"}]
+  no-unused-expressions: ["error", { "allowShortCircuit": true }]
+  no-restricted-syntax: 0
+  new-cap: ["error", { "capIsNew": false }]
+  # new-cap: [2, {"capIsNewExceptions": ["Immutable.Map", "Immutable.Set", "Immutable.List"]}]
   no-underscore-dangle: 0
   no-use-before-define: 0
-  prefer-arrow-callback: [1, { allowNamedFunctions: true}]
-  space-before-blocks: 0
-  max-len: 0
-  no-unused-vars: 0
+  func-names: 0
+  no-cond-assign: 0
+  default-case: 0
