@@ -6,7 +6,7 @@
 
 # Features
  目前已支持
- * NameSpace
+ * Namespace
  * Singleton
  * Reconnect
  
@@ -44,5 +44,6 @@ chat.on('chat', function(data) {
  
 # TODO
 + emit buffer
++ Binary support
 + Room的支持
 + Smaller size
