@@ -47,3 +47,4 @@ chat.on('chat', function(data) {
 + Binary support
 + Room的支持
 + Smaller size
++ ***Ajax style api***
