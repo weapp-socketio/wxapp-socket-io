@@ -45,3 +45,4 @@ chat.on('chat', function(data) {
 # TODO
 + emit buffer
 + Room的支持
++ Smaller size
