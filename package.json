@@ -2,7 +2,7 @@
   "name": "wxapp-socket-io",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "build/index.js",
   "scripts": {
     "build": "./node_modules/.bin/rollup -c"
   },
@@ -10,7 +10,19 @@
     "type": "git",
     "url": "git+https://github.com/fanweixiao/wxapp-socket-io.git"
   },
-  "author": "fanweixiao@gmail.com",
+  "author": "C.C. <fanweixiao@gmail.com> (https://github.com/fanweixiao)",
+  "contributors": [
+    "C.C. <fanweixiao@gmail.com> (https://github.com/fanweixiao)",
+    "Liuguili <gongzili456@gmail.com> (https://github.com/gongzili456)"
+  ],
+  "keywords": [
+    "socket.io",
+    "wxapp",
+    "weapp",
+    "wechat",
+    "socket",
+    "wesocket"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/fanweixiao/wxapp-socket-io/issues"
