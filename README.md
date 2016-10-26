@@ -23,7 +23,9 @@
 ## manual
 
 拷贝 build 目录的 index.js 文件到你的项目目录，并 require
+
 `const io = require('yourPath/build/index.js')`
+
 
 为了
 使用风格与 socket.io 完全一致
