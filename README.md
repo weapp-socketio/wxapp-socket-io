@@ -17,10 +17,10 @@
 
 # How to use
 
-## npm
+### npm
 `npm install wxapp-socket-io`
 
-## manual
+### manual
 
 拷贝 build 目录的 index.js 文件到你的项目目录，并 require
 
