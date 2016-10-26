@@ -16,8 +16,13 @@
 生产环境可使用 `NODE_ENV=production npm run build` 进行压缩编译
 
 # How to use
-拷贝 build 目录的 index.js 文件到你的项目目录，并 require
 
+## npm
+`npm install wxapp-socket-io`
+
+## manual
+
+拷贝 build 目录的 index.js 文件到你的项目目录，并 require
 `const io = require('yourPath/build/index.js')`
 
 为了
