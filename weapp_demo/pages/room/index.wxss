@@ -1,0 +1,55 @@
+.message-list {
+  position: absolute;
+  top: 0px;
+  bottom: 50px;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+  padding: 20px;
+}
+
+.message-list .scroll {
+  height: 100%;
+}
+
+.input-view {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  max-height: 50px;
+}
+
+.input-view input {
+  display: inline-block;
+  border-bottom: 1px solid #3e3e3e;
+  width: 80%;
+  padding-left: 20px;
+}
+
+.input-view button {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  border-radius: 0px;
+}
+
+.scroll-view-item {
+  margin-top: 5px;
+  border: 1px solid #3e3e3e;
+}
+
+.receiver {
+
+}
+
+.scroll-view-item .content {
+  max-width: 300px;
+  word-wrap: break-word; 
+  word-break: normal; 
+  line-height: 1.4;
+}
+
+.sender .content {
+  float: right
+}

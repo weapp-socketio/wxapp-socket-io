@@ -1,10 +1,8 @@
 <!--index.wxml-->
 <view class="container">
-  <view  bindtap="bindViewTap" class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <view  class="greeting">
+    <text class="nick-label">What's your nickname?</text>
+    <input type="text" class="nickname" auto-focus="true" bindinput="inputNameEvent"/>
+    <button type="primary" class="type-btn" bindtap="enterRoom">进入聊天室</button>
   </view>
 </view>

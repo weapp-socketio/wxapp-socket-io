@@ -1,10 +1,15 @@
 /**app.wxss**/
 .container {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 200rpx 0;
+  padding: 200px 20px;
   box-sizing: border-box;
 } 

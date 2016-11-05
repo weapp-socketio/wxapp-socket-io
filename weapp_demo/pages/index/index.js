@@ -1,30 +1,46 @@
-//index.js
-//获取应用实例
-var app = getApp()
+// index.js
+// 获取应用实例
+const app = getApp()
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {}
+    nickname: '',
   },
-  
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
+
+  // 事件处理函数
+  inputNameEvent: function(event) {
+    this.setData({
+      nickname: event.detail.value,
     })
   },
-  onLoad: function () {
-    console.log('>>>>>>>>>>>>>>>', __wxConfig)
-    console.log('onLoad')
-    var that = this
-    //调用应用实例的方法获取全局数据
-    app.getUserInfo(function(userInfo){
-      //更新数据
-      that.setData({
-        userInfo:userInfo
+
+  enterRoom: function(event) {
+    console.log('nickname => ', this.data.nickname)
+    if (!this.data.nickname) {
+      return
+    }
+    app.globalData.nickname = this.data.nickname
+
+    app.globalData.socket.emit('add user', this.data.nickname)
+
+    wx.navigateTo({
+      url: '../room/index',
+    })
+  },
+
+  onLoad: function() {
+    const that = this
+    this.onSocketEvent()
+  },
+
+  onSocketEvent: function() {
+    const socket = app.globalData.socket
+
+    socket.on('login', function(msg) {
+      wx.showToast({
+        title: '登录成功',
+        icon: 'success',
+        duration: 3000
       })
     })
-
-    app.getSocket()
   }
 })
