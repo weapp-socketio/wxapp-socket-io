@@ -1,9 +1,6 @@
 import Emitter from 'component-emitter'
 import on from './on.js'
 import bind from 'component-bind'
-import _debug from './debug'
-
-const debug = _debug('app:socket:')
 
 Emitter(Socket.prototype)
 
@@ -61,7 +58,6 @@ Socket.prototype.subEvents = function() {
 
 Socket.prototype.open =
 Socket.prototype.connect = function() {
-  debug('socket to open, connected -> ', this.connected)
   if (this.connected) return this
   this.subEvents()
   this.io.open() // ensure open
@@ -70,12 +66,10 @@ Socket.prototype.connect = function() {
 }
 
 Socket.prototype.onopen = function() {
-  debug('on open')
   if ('/' != this.nsp) this.packet({ type: parser.CONNECT })
 }
 
 Socket.prototype.onclose = function(reason) {
-  debug('on close -> ', reason)
   this.connected = false
   this.disconnected = true
   delete this.id
@@ -102,7 +96,6 @@ Socket.prototype.onpacket = function(packet) {
 }
 
 Socket.prototype.onconnect = function() {
-  debug('on connect')
   this.connected = true
   this.disconnected = false
   this.emit('connect')
@@ -111,7 +104,6 @@ Socket.prototype.onconnect = function() {
 
 Socket.prototype.onevent = function(packet) {
   const args = packet.data || []
-  debug('emitting event -> ', packet)
 
   if (this.connected) {
     emit.apply(this, args)
@@ -123,7 +115,6 @@ Socket.prototype.onevent = function(packet) {
 Socket.prototype.close =
 Socket.prototype.disconnect = function() {
   if (this.connected) {
-    debug('performing disconnect ', this.nsp)
     this.packet({ type: parser.DISCONNECT })
   }
 

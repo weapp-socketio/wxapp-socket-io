@@ -3,13 +3,10 @@ import on from './on'
 import parsejson from './parsejson'
 import bind from 'component-bind'
 import parseuri from 'parseuri'
-import _debug from './debug'
 
 export default Engine
 
 const GlobalEmitter = Emitter({ hasEmitte: false })
-
-const debug = _debug('app:Engine:')
 
 Emitter(Engine.prototype)
 
@@ -51,27 +48,22 @@ Engine.prototype.connect = function() {
 }
 
 Engine.prototype.onopen = function() {
-  debug('on open')
   this.emit('open')
 }
 
 Engine.prototype.onclose = function(reason) {
-  debug('on close -> ', reason)
   // clean all bind with GlobalEmitter
   this.destroy()
   this.emit('close', reason)
 }
 
 Engine.prototype.onerror = function(reason) {
-  debug('on error -> ', reason)
   this.emit('error')
   // 如果 wx.connectSocket 还没回调 wx.onSocketOpen，而先调用 wx.closeSocket，那么就做不到关闭 WebSocket 的目的。
   wx.closeSocket()
 }
 
 Engine.prototype.onpacket = function(packet) {
-  debug('on packet -> ', packet)
-
   switch (packet.type) {
   case 'open':
     this.onHandshake(parsejson(packet.data))
@@ -108,7 +100,6 @@ Engine.prototype.setPing = function() {
 }
 
 Engine.prototype.ping = function() {
-  debug('ping......')
   this.emit('ping')
   this._send(`${packets.ping}probe`)
 }
@@ -119,7 +110,6 @@ Engine.prototype.send = function(packet) {
 }
 
 Engine.prototype._send = function(data) {
-  debug('send message -> ', data)
   wx.sendSocketMessage({ data })
 }
 Engine.subEvents = function() {
@@ -143,7 +133,6 @@ Engine.prototype.bindEvents = function() {
   this.subs.push(on(GlobalEmitter, 'close', bind(this, 'onclose')))
   this.subs.push(on(GlobalEmitter, 'error', bind(this, 'onerror')))
   this.subs.push(on(GlobalEmitter, 'packet', bind(this, 'onpacket')))
-  debug('bind events -> ', this.subs)
 }
 
 Engine.prototype.destroy = function() {
@@ -155,7 +144,6 @@ Engine.prototype.destroy = function() {
   this.id = null
   this.writeBuffer = []
   this.prevBufferLen = 0
-  debug('destroy -> ', this.subs)
 }
 
 function decodePacket(data) {

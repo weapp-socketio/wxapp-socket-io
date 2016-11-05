@@ -4,11 +4,8 @@ import Backoff from 'backo2'
 import indexOf from 'indexof'
 import on from './on'
 import Engine from './engine'
-import _debug from './debug'
 import { encoder, decoder } from './parser'
 import Socket from './socket'
-
-const debug = _debug('app:Manager:')
 
 const has = Object.prototype.hasOwnProperty
 
@@ -55,13 +52,11 @@ Manager.prototype.connect = function(fn) {
   const socket = this.engine
 
   this.subs.push(on(socket, 'open', () => {
-    debug('catch open event')
     this.onopen()
     fn && fn()
   }))
 
   this.subs.push(on(socket, 'error', data => {
-    debug('connect_error')
     this.cleanup()
     this.readyState = 'closed'
     this.emitAll('connect_error', data)
@@ -79,7 +74,6 @@ Manager.prototype.connect = function(fn) {
 }
 
 Manager.prototype.onopen = function() {
-  debug('on open')
   this.cleanup()
 
   this.readyState = 'open'
@@ -95,18 +89,13 @@ Manager.prototype.onopen = function() {
 }
 
 Manager.prototype.onclose = function(reason) {
-  debug('on close')
-
   this.cleanup()
   this.readyState = 'closed'
   this.emit('close', reason)
-
-  debug('_reconnection -> ', this._reconnection, '!this.skipReconnect -> ', !this.skipReconnect)
   if (this._reconnection && !this.skipReconnect) this.reconnect()
 }
 
 Manager.prototype.onerror = function(reason) {
-  debug('on error')
   this.emitAll('error')
 }
 
@@ -120,9 +109,7 @@ Manager.prototype.onpong = function() {
 }
 
 Manager.prototype.ondata = function(data) {
-  debug('on data -> ', data)
   this.decoder(data, decoding => {
-    debug('decoding -> ', decoding)
     this.emit('packet', decoding)
   })
 }
@@ -136,7 +123,6 @@ Manager.prototype.packet = function(packet) {
 }
 
 Manager.prototype.socket = function(nsp) {
-  debug('create socket nsp is -> ', nsp)
   let socket = this.nsps[nsp]
   if (!socket) {
     socket = new Socket(this, nsp)
@@ -163,22 +149,16 @@ Manager.prototype.emitAll = function(...args) {
 }
 
 Manager.prototype.reconnect = function() {
-  debug('reconnect: reconnecting -> ', this.reconnecting, 'skipReconnect -> ', this.skipReconnect)
   if (this.reconnecting || this.skipReconnect) return this
 
   if (this.backoff.attempts >= this._reconnectionAttempts) {
-    debug('reconnect failed')
     this.backoff.reset()
     this.emitAll('reconnect_failed')
     this.reconnecting = false
   } else {
     const delay = this.backoff.duration()
-    debug('will wait %dms before reconnect attempt', delay)
-
     this.reconnecting = true
     const timer = setTimeout(() => {
-      debug('attempting reconnect')
-
       this.emitAll('reconnect_attempt', this.backoff.attempts)
       this.emitAll('reconnecting', this.backoff.attempts)
 
@@ -186,12 +166,10 @@ Manager.prototype.reconnect = function() {
 
       this.open(err => {
         if (err) {
-          debug('reconnect attempt error')
           this.reconnecting = false
           this.reconnect()
           this.emitAll('reconnect_error', err.data)
         } else {
-          debug('reconnect success')
           this.onreconnect()
         }
       })
@@ -237,7 +215,6 @@ Manager.prototype.destroy = function(socket) {
 
 Manager.prototype.close =
 Manager.prototype.disconnect = function() {
-  debug('disconnect')
   this.skipReconnect = true
   this.reconnecting = false
   if ('opening' == this.readyState) {

@@ -9,7 +9,6 @@ Page({
   },
 
   typeMessageEvent: function(e) {
-    console.log('typeMessageEvent => ', e)
     this.setData({
       currentMsg: e.detail.value
     })
@@ -46,8 +45,6 @@ Page({
       self.setData({
         messages: self.data.messages + '\n' + msg.username + ': ' + msg.message
       })
-
-      console.log('messages => ', self.data.messages)
     })
 
     socket.on('user joined', function(msg) {
