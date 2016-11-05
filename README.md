@@ -4,6 +4,12 @@
 
 > 为了让开发者已最低的成本上手，本类库封装了与 socket.io 一致的 API 供开发者调用。
 
+# Demo
+ > 使用 socket.io 官网的 chat demo server 实现的 小程序版 聊天室应用
+ 使用 “微信开发者工具” 将 `weapp_demo` 目录打开，运行调试即可
+ 
+ Demo 线上版本即将发布。。。
+
 # Features
  目前已支持
  * Namespace
