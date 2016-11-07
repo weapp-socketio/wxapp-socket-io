@@ -13,6 +13,7 @@
 }
 
 .nickname {
+  width: 300px;
   color: #aaa;
   border-bottom: 1rpx solid #3e3e3e;
   text-align: center;

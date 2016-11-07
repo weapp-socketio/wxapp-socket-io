@@ -51,7 +51,7 @@ Page({
       wx.showToast({
         title: msg.username + ' 加入了房间',
         icon: 'success',
-        duration: 2000
+        duration: 1000
       })
     })
 
@@ -59,7 +59,7 @@ Page({
       wx.showToast({
         title: msg.username + ' 离开了房间',
         icon: 'loading',
-        duration: 2000
+        duration: 1000
       })
     })
   }

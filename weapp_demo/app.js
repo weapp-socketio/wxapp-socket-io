@@ -4,7 +4,7 @@ const io = require('./wxsocket.io/index.js')
 App({
   onLaunch: function() {
     // create a new socket object
-    const socket = io("ws://chat.socket.io/")
+    const socket = io("wss://chat.matong.io/")
     this.globalData.socket = socket
   },
 

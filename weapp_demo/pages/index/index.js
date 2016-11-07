@@ -20,10 +20,6 @@ Page({
     app.globalData.nickname = this.data.nickname
 
     app.globalData.socket.emit('add user', this.data.nickname)
-
-    wx.navigateTo({
-      url: '../room/index',
-    })
   },
 
   onLoad: function() {
@@ -38,7 +34,11 @@ Page({
       wx.showToast({
         title: '登录成功',
         icon: 'success',
-        duration: 3000
+        duration: 1000
+      })
+
+      wx.navigateTo({
+        url: '../room/index',
       })
     })
   }
