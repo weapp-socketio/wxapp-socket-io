@@ -8,7 +8,7 @@
  > 使用 socket.io 官网的 chat demo server 实现的 小程序版 聊天室应用
  使用 “微信开发者工具” 将 `weapp_demo` 目录打开，运行调试即可
  
- Demo 线上版本即将发布。。。
+ ***Demo 线上版本正在审核中。。。***
 
 # Features
  目前已支持
