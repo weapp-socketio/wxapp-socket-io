@@ -6,7 +6,7 @@ console.log('io ---> ' ,io)
 App({
   onLaunch: function() {
     // create a new socket object
-    const socket = io("ws://chat.socket.io/")
+    const socket = io("ws://chat.socket.io")
     this.globalData.socket = socket
   },
 

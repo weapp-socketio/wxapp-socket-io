@@ -108,6 +108,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	  return io.socket(parsed.path);
 	}
+	
+	exports.connect = lookup;
 
 /***/ },
 /* 2 */
