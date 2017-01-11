@@ -7,9 +7,9 @@
 # Demo
  使用 socket.io 官网的 chat demo server 实现的 小程序版 聊天室应用
  使用 “微信开发者工具” 将 `weapp_demo` 目录打开，运行调试即可
- 
+
  ***Demo 线上版本正在审核中。。。***
- 
+
  > Note: 服务器地址本来是使用的 `ws:chat.socket.io` ，但是为了发布上线，小程序仅支持 `wss` 和 `https`，所以我自己加了 wss 代理：`wss:chat.matong.io`，这两个地址都是可以用的。
 
 # Features
@@ -17,7 +17,7 @@
  * Namespace
  * Singleton
  * Reconnect
- 
+
 # Build
 `npm run build`
 
@@ -30,7 +30,7 @@
 
 ### manual
 
-拷贝 build 目录的 index.js 文件到你的项目目录，并 require
+拷贝 dist 目录的 index.js 文件到你的项目目录，并 require
 
 `const io = require('yourPath/build/index.js')`
 
@@ -56,10 +56,9 @@ chat.on('chat', function(data) {
 
 + [gongzili](https://github.com/gongzili456)
 + [C.C.](https://github.com/fanweixiao)
- 
+
 # TODO
 + emit buffer
 + Binary support
-+ Room的支持
++ Room 的支持
 + Smaller size
-+ ***Ajax style api***

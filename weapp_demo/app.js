@@ -1,10 +1,12 @@
-const io = require('./wxsocket.io/index.js')
+import io from './wxsocket.io/index'
+
+console.log('io ---> ' ,io)
 
 // app.js
 App({
   onLaunch: function() {
     // create a new socket object
-    const socket = io("wss://chat.matong.io/")
+    const socket = io("ws://chat.socket.io/")
     this.globalData.socket = socket
   },
 

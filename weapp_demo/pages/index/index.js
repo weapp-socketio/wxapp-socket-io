@@ -14,6 +14,7 @@ Page({
   },
 
   enterRoom: function(event) {
+    console.log('nickname - > ', this.data.nickname)
     if (!this.data.nickname) {
       return
     }
