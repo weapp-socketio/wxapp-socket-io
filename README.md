@@ -1,3 +1,6 @@
+# Community
+[Slack](https://wxapp-socket-io.slack.com)
+
 # weapp-socket-io
 
 微信小程序的 Socket.io client 实现，**压缩之后体积为 16K**
