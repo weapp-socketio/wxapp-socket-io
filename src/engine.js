@@ -136,6 +136,9 @@ Engine.prototype.bindEvents = function() {
 }
 
 Engine.prototype.destroy = function() {
+  // 销毁的时候关闭socket
+  wx.closeSocket()
+  
   let sub
   while (sub = this.subs.shift()) { sub.destroy() }
 
