@@ -5,7 +5,7 @@
 
 微信小程序的 Socket.io client 实现，**压缩之后体积为 16K**
 
-> 为了让开发者已最低的成本上手，本类库封装了与 socket.io 一致的 API 供开发者调用。
+> 为了让开发者以最低的成本上手，本类库封装了与 socket.io 一致的 API 供开发者调用。
 
 # Demo
  使用 socket.io 官网的 chat demo server 实现的 小程序版 聊天室应用
@@ -34,8 +34,7 @@
 `const io = require('yourPath/build/index.js')`
 
 
-为了
-使用风格与 socket.io 完全一致
+为了使用风格与 socket.io 完全一致
 
 ```javascript
 const news = io('ws://localhost:9999/news')
