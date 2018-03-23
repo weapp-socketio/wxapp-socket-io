@@ -47,6 +47,10 @@ Engine.prototype.connect = function() {
   wx.connectSocket({ url })
 }
 
+Engine.prototype.close = function() {
+  wx.closeSocket()
+}
+
 Engine.prototype.onopen = function() {
   this.emit('open')
 }
